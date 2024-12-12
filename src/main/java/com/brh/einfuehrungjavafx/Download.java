@@ -9,9 +9,9 @@ public class Download {
    private File outputFile;
 
     /**
-     *
-     * @param link
-     * @param folder
+     * Download durchfuehren
+     * @param link url
+     * @param folder Zielordner
      */
    public void load( String link, String folder){
 
@@ -24,7 +24,7 @@ public class Download {
            //Stream öffnen
            BufferedInputStream inputStream = new BufferedInputStream(connection.getInputStream());
 
-           //Ausgabefile -> hier werden die runtergeladenen gespeichert
+           //Ausgabefile -> hier werden die runtergeladenen Datengespeichert
            File file = new File(link);//dient der Feststellung des Dateinamens
            String filename = file.getName();
            outputFile = new File(folder, filename);//File erstellt
@@ -45,10 +45,6 @@ public class Download {
 
            bufferdOutputStream.close();
            inputStream.close();
-
-
-
-
        }
        catch( MalformedURLException e){
            System.err.println( "Fehlerhafte Url:" + e.getMessage());
@@ -59,8 +55,6 @@ public class Download {
        finally{
 
        }
-
-
    }
 
 
