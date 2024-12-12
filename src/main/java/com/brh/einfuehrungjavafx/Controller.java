@@ -13,6 +13,10 @@ public class Controller {
     private TextField directoryTf;
     @FXML
     protected void download() {
+           var download = new Download();
+
+           //Aufgabe: prüfen ob die Textfelder Daten enthalten
+           download.load( urlTf.getText(), directoryTf.getText() );
 
     }
 

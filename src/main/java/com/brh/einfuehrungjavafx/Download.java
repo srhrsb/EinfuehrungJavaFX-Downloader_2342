@@ -1,8 +1,6 @@
 package com.brh.einfuehrungjavafx;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -10,18 +8,43 @@ import java.net.URL;
 public class Download {
    private File outputFile;
 
+    /**
+     *
+     * @param link
+     * @param folder
+     */
    public void load( String link, String folder){
 
-       try{
+       try{ //Exceptionhandling weil die URL Klasse und die HttpUrlConection
+            //CheckedExceptions sind und eine Fehlerbehandlung "erzwingen" durch das Schlüsselwort throws
            URL url = new URL(link);
+           //Http Verbindung herstellen
            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
+           //Stream öffnen
            BufferedInputStream inputStream = new BufferedInputStream(connection.getInputStream());
 
-           File file = new File(link);
+           //Ausgabefile -> hier werden die runtergeladenen gespeichert
+           File file = new File(link);//dient der Feststellung des Dateinamens
            String filename = file.getName();
+           outputFile = new File(folder, filename);//File erstellt
 
-           outputFile = new File(folder, filename);
+           OutputStream outputStream = new FileOutputStream( outputFile );
+           BufferedOutputStream bufferdOutputStream = new BufferedOutputStream( outputStream );
+
+           byte[] buffer = new byte[1024];
+           int readByte = 0;
+           int progress = 0;
+
+
+           while((readByte = inputStream.read( buffer, 0, 1024)) >= 0){ //solange Daten im Stream sind
+               bufferdOutputStream.write( buffer, 0, readByte); //gelesene Daten an Outputstream übergeben
+               progress +=readByte;
+               System.out.println("schon runtergeladen: "+ progress);
+           }
+
+
+
 
 
        }
