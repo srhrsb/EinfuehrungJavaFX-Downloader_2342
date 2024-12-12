@@ -43,6 +43,8 @@ public class Download {
                System.out.println("schon runtergeladen: "+ progress);
            }
 
+           bufferdOutputStream.close();
+           inputStream.close();
 
 
 

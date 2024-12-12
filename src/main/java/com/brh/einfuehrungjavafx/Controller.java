@@ -16,7 +16,13 @@ public class Controller {
            var download = new Download();
 
            //Aufgabe: prüfen ob die Textfelder Daten enthalten
-           download.load( urlTf.getText(), directoryTf.getText() );
+           String url =  urlTf.getText();
+           String directory =  directoryTf.getText();
+
+           if(!url.isEmpty() && !directory.isEmpty()){
+               download.load( url, directory );
+           }
+
 
     }
 

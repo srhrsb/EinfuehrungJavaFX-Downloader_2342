@@ -22,6 +22,6 @@
             <Button mnemonicParsing="false" onAction="#searchDirectory" text="..." />
          </children>
       </HBox>
-      <Button disable="true" mnemonicParsing="false" onAction="#download" prefHeight="26.0" prefWidth="416.0" text="Download" />
+      <Button mnemonicParsing="false" onAction="#download" prefHeight="26.0" prefWidth="416.0" text="Download" />
    </children>
 </VBox>
