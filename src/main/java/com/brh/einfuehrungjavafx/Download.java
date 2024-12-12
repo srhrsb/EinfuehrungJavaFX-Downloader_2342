@@ -5,6 +5,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+//Anmerkung: Diese Art und Weise würde bei größeren Dateien nicht funktionieren
+//da die while-Schleife in der Methode "load" der Prozess zu lange aufhalten würde
+//in einem weiteren Versuch werden wir später versuchen, den Download nebenläufig durchzuführen
+
 public class Download {
    private File outputFile;
 
