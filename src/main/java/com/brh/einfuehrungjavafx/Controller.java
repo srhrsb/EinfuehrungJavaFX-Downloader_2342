@@ -13,8 +13,6 @@ public class Controller {
     private TextField directoryTf;
     @FXML
     protected void download() {
-
-
            //Aufgabe: prüfen ob die Textfelder Daten enthalten
            String url =  urlTf.getText();
            String directory =  directoryTf.getText();
@@ -26,8 +24,6 @@ public class Controller {
                  new Thread( new Download( "https://spiel-programmieren.de/Images/PanelUnity.jpg", directory) ).start();
 
            }
-
-
     }
 
     @FXML
