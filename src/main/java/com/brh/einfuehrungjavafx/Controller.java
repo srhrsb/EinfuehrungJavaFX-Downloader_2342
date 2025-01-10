@@ -13,14 +13,18 @@ public class Controller {
     private TextField directoryTf;
     @FXML
     protected void download() {
-           var download = new Download();
+
 
            //Aufgabe: prüfen ob die Textfelder Daten enthalten
            String url =  urlTf.getText();
            String directory =  directoryTf.getText();
 
            if(!url.isEmpty() && !directory.isEmpty()){
-               download.load( url, directory );
+
+                 new Thread( new Download( url, directory) ).start();
+                 new Thread( new Download("https://spiel-programmieren.de/Images/PanelWeb.jpg" , directory) ).start();
+                 new Thread( new Download( "https://spiel-programmieren.de/Images/PanelUnity.jpg", directory) ).start();
+
            }
 
 
